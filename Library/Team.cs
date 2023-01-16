@@ -9,7 +9,8 @@ namespace Library
     public class Team
     {
         string name;
-
+        int n_Rosa = 0;
+        int n_Riserva = 0;
         /// <summary>
         /// List of players of the Team
         /// </summary>
@@ -31,7 +32,6 @@ namespace Library
             players = new List<Player>();
             this.name = name;
         }
-
         /// <summary>
         /// Adding player to a Team
         /// 
@@ -41,22 +41,15 @@ namespace Library
         /// <returns>True if player has been inserted</returns>
         public bool AddPlayer(Player player)
         {
-
-            int n_Rosa = 0;
-            int n_Riserva = 0;
-            foreach (Player p in players)
-            {
-                n_Rosa++;
-                n_Riserva++;
-            }
-            n_Rosa = n_Rosa - MAX_ROSA_PLAYERS;
-            n_Riserva = n_Riserva - MAX_RISERVA_PLAYERS;
             switch (player.Role)
             {
                 case Player.ERole.Rosa:
                     if (MAX_ROSA_PLAYERS < n_Rosa)
-                        players.Add(player);                    
-                    else 
+                    {
+                        players.Add(player);
+                        n_Rosa++;
+                    }
+                    else
                         Console.WriteLine("La rosa è piena");
 
                     break;
@@ -64,13 +57,14 @@ namespace Library
                     if (MAX_RISERVA_PLAYERS < n_Riserva)
                     {
                         players.Add(player);
+                        n_Riserva++;
                     }
                     else
                         Console.WriteLine("La Riserva è piena");
                     break;
             }
+            return true;
         }
-
         /// <summary>
         /// Setting captain of the Team
         /// 
@@ -80,16 +74,19 @@ namespace Library
         /// <returns>True if captain has been setted</returns>
         public bool AddCaptain(Player captain)
         {
-            // TODO T.3
+            players.Add(captain);
+            return true;
         }
-
         /// <summary>
         /// Get a list of players of the team
         /// </summary>
         /// <returns></returns>
         public string GetPlayers()
         {
-            
+          foreach(Player player in players)
+            {
+                
+            }
         }
 
         public string Name { get { return name; } }

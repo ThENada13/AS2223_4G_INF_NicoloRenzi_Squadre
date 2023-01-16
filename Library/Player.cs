@@ -27,7 +27,7 @@ namespace Library
 
         public ERole Role 
         {
-            get { return role;}
+            get { return role; }
         }
 
     }
