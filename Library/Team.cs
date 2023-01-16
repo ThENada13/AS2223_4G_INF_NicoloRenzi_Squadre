@@ -40,7 +40,11 @@ namespace Library
         /// <returns>True if player has been inserted</returns>
         public bool AddPlayer(Player player)
         {
-           if()
+            int n_player = 0;
+           if(player.role == Rosa)
+            {
+                n_player++;
+            }
         }
 
         /// <summary>
@@ -61,7 +65,7 @@ namespace Library
         /// <returns></returns>
         public string GetPlayers()
         {
-            // TODO T.4
+            
         }
 
         public string Name { get { return name; } }
