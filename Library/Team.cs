@@ -28,6 +28,7 @@ namespace Library
 
         public Team(string name)
         {
+            players = new List<Player>();
             this.name = name;
         }
 
@@ -40,10 +41,25 @@ namespace Library
         /// <returns>True if player has been inserted</returns>
         public bool AddPlayer(Player player)
         {
+
             int n_player = 0;
-           if(player.role == Rosa)
+            foreach (Player p in players)
             {
                 n_player++;
+            }
+            switch (player.role)
+            {
+                case Player.ERole.Rosa:
+                    if (MAX_ROSA_PLAYERS < n_player)
+                        players.Add(player);                    
+                    else 
+                        Console.WriteLine("La rosa è piena");
+
+                    break;
+                case Player.ERole.Riserva
+                    if(MAX_RISERVA_PLAYERS < )
+
+                : break;
             }
         }
 
