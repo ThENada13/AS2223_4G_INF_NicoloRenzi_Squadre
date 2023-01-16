@@ -40,7 +40,7 @@ namespace Library
         /// <returns>True if player has been inserted</returns>
         public bool AddPlayer(Player player)
         {
-            // TODO T.2
+           if()
         }
 
         /// <summary>
